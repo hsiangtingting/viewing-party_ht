@@ -25,6 +25,7 @@ Communication of logics and solution and gain the adaptability for code style an
 
 ## Optional: Other agreements
 *Other co-working agreements that were not captured in the above sections.*
+    Make a comment before changing each other's code so we can review the changes being made.
 
 ## Signatures
 ______________ _Hsiang-Ting Peng_
