@@ -1,6 +1,6 @@
 # Viewing Party
 
-#Amanda makes a minimal comment
+# Amanda makes a minimal comment
 
 ## Skills Assessed
 
