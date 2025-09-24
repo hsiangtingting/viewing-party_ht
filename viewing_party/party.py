@@ -1,6 +1,5 @@
-# ------------- WAVE 1 --------------------
+# ------------- WAVE 1 --------------------from HP
 
-<<<<<<< HEAD
 # def create_movie(title, genre, rating):
 #     if title is None or genre is None or rating is None :
 #         return None
@@ -35,12 +34,10 @@
 #     return user_data
 
 
-
-# ------------- WAVE 2 --------------------
+# ------------- WAVE 1 --------------------from AT
 
 def calculates_watched_average_rating():
     pass
-=======
 def create_movie(title, genre, rating):
     if title and genre and rating:
         return {
@@ -64,23 +61,47 @@ def watch_movie(user_data, title):
         movie = user_data["watchlist"][i]
         if movie["title"] == title:
             movie_to_pop = i
-    if movie_to_pop > -1:  
+    if movie_to_pop > -1:
         user_data["watched"].append(user_data["watchlist"].pop(movie_to_pop))
-    
+
     return user_data
->>>>>>> a87e8141a044e82c83b5e8e1f14c007ec91015d3
 
-def empty_watched_average_rating_is_zero():
-    pass
+# ------------- WAVE 2 --------------------from HP
 
-def most_watched_genre():
-    pass
+# def get_watched_avg_rating(user_data):
+#     watched_list = user_data["watched"]
 
-def most_watched_genre_order_mixed():
-    pass
+#     if not watched_list:
+#         return 0.0
 
-def genre_is_None_if_empty_watched():
-    pass
+#     total_rating = 0
+
+#     for movie in watched_list:
+#         total_rating += movie["rating"]
+
+#     average_rating = total_rating/len(watched_list)
+#     return average_rating
+
+# def get_most_watched_genre(user_data):
+#     watched_list = user_data["watched"]
+
+#     if not watched_list:
+#         return None
+
+#     movie_genre_count = {}
+
+#     for movie in watched_list:
+#         genre = movie["genre"]
+
+#         if genre in movie_genre_count :
+#             movie_genre_count[genre] += 1
+#         else:
+#             movie_genre_count[genre] = 1
+
+#     popular_genre  = max(movie_genre_count, key=movie_genre_count.get)
+
+#     return popular_genre
+
 
 # ------------- WAVE 3 --------------------
 
@@ -92,5 +113,3 @@ def genre_is_None_if_empty_watched():
 
 
 # ------------- WAVE 5 --------------------
-
-
