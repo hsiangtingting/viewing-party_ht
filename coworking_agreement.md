@@ -28,7 +28,5 @@ Communication of logics and solution and gain the adaptability for code style an
     Make a comment before changing each other's code so we can review the changes being made.
 
 ## Signatures
-______________ _Hsiang-Ting Peng_
+Amanda Thompson _Hsiang-Ting Peng_
 Date: _9/22/2025_
-Amanda Thompson
-Date: 9/22/2025
