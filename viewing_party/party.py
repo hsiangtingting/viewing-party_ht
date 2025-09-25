@@ -68,45 +68,66 @@ def watch_movie(user_data, title):
 
 # ------------- WAVE 2 --------------------from HP
 
-# def get_watched_avg_rating(user_data):
-#     watched_list = user_data["watched"]
+def get_watched_avg_rating(user_data):
+    watched_list = user_data["watched"]
 
-#     if not watched_list:
-#         return 0.0
+    if not watched_list:
+        return 0.0
 
-#     total_rating = 0
+    total_rating = 0
 
-#     for movie in watched_list:
-#         total_rating += movie["rating"]
+    for movie in watched_list:
+        total_rating += movie["rating"]
 
-#     average_rating = total_rating/len(watched_list)
-#     return average_rating
+    average_rating = total_rating/len(watched_list)
+    return average_rating
 
-# def get_most_watched_genre(user_data):
-#     watched_list = user_data["watched"]
+def get_most_watched_genre(user_data):
+    watched_list = user_data["watched"]
 
-#     if not watched_list:
-#         return None
+    if not watched_list:
+        return None
 
-#     movie_genre_count = {}
+    movie_genre_count = {}
 
-#     for movie in watched_list:
-#         genre = movie["genre"]
+    for movie in watched_list:
+        genre = movie["genre"]
 
-#         if genre in movie_genre_count :
-#             movie_genre_count[genre] += 1
-#         else:
-#             movie_genre_count[genre] = 1
+        if genre in movie_genre_count :
+            movie_genre_count[genre] += 1
+        else:
+            movie_genre_count[genre] = 1
 
-#     popular_genre  = max(movie_genre_count, key=movie_genre_count.get)
+    popular_genre  = max(movie_genre_count, key=movie_genre_count.get)
 
-#     return popular_genre
-
-
-# ------------- WAVE 3 --------------------
+    return popular_genre
 
 
+# ------------- WAVE 3 --------------------from AT
 
+def get_unique_watched(user_data):
+    watched_movies = {}
+    for movie in user_data["watched"]:
+        watched_movies[movie["title"]] = movie
+
+    for user in user_data["friends"]:
+        for movie in user["watched"]:
+            if movie["title"] in watched_movies:
+                del watched_movies[movie["title"]]
+
+    return list(watched_movies.values())
+
+def get_friends_unique_watched(user_data):
+    watched_movies = {}
+    for user in user_data["friends"]:
+        for movie in user["watched"]:
+            watched_movies[movie["title"]] = movie
+
+    for movie in user_data["watched"]:
+        if movie["title"] in watched_movies:
+            del watched_movies[movie["title"]]
+    
+    return list(watched_movies.values())
 
 # ------------- WAVE 4 --------------------
 
