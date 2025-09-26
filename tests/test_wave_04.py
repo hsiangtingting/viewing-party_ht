@@ -2,7 +2,10 @@ import pytest
 from viewing_party.party import *
 from tests.test_constants import *
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a77ebbe59836637346eada4ce0181bf6f8e2cc9a
 def test_get_available_friend_rec():
     # Arrange
     amandas_data = clean_wave_4_data()
@@ -17,7 +20,10 @@ def test_get_available_friend_rec():
     assert FANTASY_4b in recommendations
     assert amandas_data == clean_wave_4_data()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a77ebbe59836637346eada4ce0181bf6f8e2cc9a
 def test_no_available_friend_recs():
     # Arrange
     amandas_data = {
