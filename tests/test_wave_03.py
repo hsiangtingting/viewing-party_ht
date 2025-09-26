@@ -50,11 +50,11 @@ def test_friends_unique_movies_not_duplicated():
 
     # Assert
     assert len(friends_unique_movies) == 3
-    # ****** Add assertions here to test that the correct movies are in friends_unique_movies ********** HP
+    # ****** Add assertions here to test that the correct movies are in friends_unique_movies **********from HP
     # expected_movies = [INTRIGUE_1, INTRIGUE_2, INTRIGUE_3]
     # assert set(friends_unique_movies) == set(expected_movies)
     
-    # ****** Add assertions here to test that the correct movies are in friends_unique_movies ********** AT
+    # ****** Add assertions here to test that the correct movies are in friends_unique_movies **********from AT
     expected_movies_titles = ["Zero Dark Python", 
                               "The Programmer: An Unexpected Stack Trace", 
                               "It Came from the Stack Trace"]
