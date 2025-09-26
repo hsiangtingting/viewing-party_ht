@@ -36,8 +36,6 @@
 
 # ------------- WAVE 1 --------------------from AT
 
-def calculates_watched_average_rating():
-    pass
 def create_movie(title, genre, rating):
     if title and genre and rating:
         return {
@@ -126,11 +124,85 @@ def get_friends_unique_watched(user_data):
     for movie in user_data["watched"]:
         if movie["title"] in watched_movies:
             del watched_movies[movie["title"]]
-    
+
     return list(watched_movies.values())
 
-# ------------- WAVE 4 --------------------
+# ------------- WAVE 4 --------------------from HP
+
+def get_available_recs(user_data):
+    watched_movie_titles = []
+    for movie in user_data["watched"]:
+        watched_movie_titles.append(movie["title"])
+
+    friends_movies = []
+    for friend in user_data["friends"] :
+        for movie in friend["watched"] :
+            friends_movies.append(movie)
+
+    subscribed_list = []
+    for subscribe in user_data["subscriptions"]:
+        subscribed_list.append(subscribe)
+
+    rec_movie_list = []
+    for movie in friends_movies :
+        can_watch = movie["host"] in subscribed_list
+        if movie["title"] not in watched_movie_titles and can_watch:
+            rec_movie_list.append(movie)
+
+    added_titles = []
+    final_rec_list = []
+
+    for movie in rec_movie_list :
+        if movie["title"] not in added_titles :
+            final_rec_list.append(movie)
+            added_titles.append(movie["title"])
+
+    return final_rec_list
+
+# ------------- WAVE 5 --------------------from HP
+
+def get_new_rec_by_genre(user_data):
+
+    if not user_data["watched"]:
+        return []
+
+    most_seen_genre = get_most_watched_genre(user_data)
+
+    watched_list = user_data["watched"]
+    watched_titles = {movie["title"] for movie in watched_list}
+
+    added_titles = set()
+    final_rec_list = []
+
+    for friend in user_data["friends"] :
+        for movie in friend["watched"] :
+            if movie["genre"] == most_seen_genre :
+                if movie["title"] not in watched_titles:
+                    if movie["title"] not in added_titles:
+                        final_rec_list.append(movie)
+                        added_titles.add(movie["title"])
+
+    return final_rec_list
 
 
+def get_rec_from_favorites(user_data):
+    if not user_data or not user_data["favorites"]:
+        return []
 
-# ------------- WAVE 5 --------------------
+    recommended_movies = []
+
+    for favorite_movie in user_data["favorites"]:
+        found = False
+        for friend in user_data["friends"]:
+            for friends_watched_movie in friend["watched"]:
+                if favorite_movie == friends_watched_movie:
+                    found = True
+                    break
+            if found:
+                break
+
+        if not found:
+            recommended_movies.append(favorite_movie)
+
+    return recommended_movies
+
