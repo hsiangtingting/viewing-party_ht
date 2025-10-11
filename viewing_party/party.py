@@ -96,7 +96,13 @@ def get_most_watched_genre(user_data):
         else:
             movie_genre_count[genre] = 1
 
-    popular_genre  = max(movie_genre_count, key=movie_genre_count.get)
+    popular_genre = None
+    max_genre_count = 0
+
+    for genre, count in movie_genre_count.items():
+        if count > max_genre_count:
+            max_genre_count = count
+            popular_genre = genre
 
     return popular_genre
 
@@ -189,7 +195,7 @@ def get_friends_unique_watched(user_data):
 #     if not user_data or not user_data["favorites"]:
 #         return []
 
-#     recommended_movies = []
+#     rec_movies = []
 
 #     for favorite_movie in user_data["favorites"]:
 #         found = False
@@ -202,9 +208,9 @@ def get_friends_unique_watched(user_data):
 #                 break
 
 #         if not found:
-#             recommended_movies.append(favorite_movie)
+#             rec_movies.append(favorite_movie)
 
-#     return recommended_movies
+#     return rec_movies
 
 # ------------- WAVE 4 --------------------from AT
 
